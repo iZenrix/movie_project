@@ -133,9 +133,17 @@ class HomeView extends GetView<HomeController> {
           );
         }
         if (state.value == LoadState.error && items.isEmpty) {
-          return ErrorInitialWidget(
-            onRetry: onRetry,
-            useButton: true,
+          return Center(
+            child: CustomScrollView(
+              physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              slivers: [
+                ErrorInitialWidget(
+                  onRetry: onRetry,
+                  useButton: true,
+                ),
+              ],
+            ),
           );
         }
 
@@ -185,9 +193,17 @@ class HomeView extends GetView<HomeController> {
         );
       }
       if (state.value == LoadState.error && items.isEmpty) {
-        return ErrorInitialWidget(
-          onRetry: onRetry,
-          useButton: true,
+        return Center(
+          child: CustomScrollView(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            slivers: [
+              ErrorInitialWidget(
+                onRetry: onRetry,
+                useButton: true,
+              ),
+            ],
+          ),
         );
       }
 
