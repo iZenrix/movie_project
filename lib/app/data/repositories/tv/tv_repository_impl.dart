@@ -70,28 +70,28 @@ class TvRepositoryImpl implements TvRepository {
 
   TvEntity _mapTvModelToEntity(TvModel response) {
     return TvEntity(
-      id: response.id ?? 0,
-      name: response.name ?? '',
-      overview: response.overview ?? '',
+      id: response.id,
+      name: response.name,
+      overview: response.overview,
       posterPath: response.posterPath ?? '',
       backdropPath: response.backdropPath ?? '',
       firstAirDate: response.firstAirDate ?? '',
-      voteAverage: response.voteAverage ?? 0.0,
+      voteAverage: response.voteAverage,
       adult: response.adult,
-      genreIds: response.genreIds ?? [],
-      originalLanguage: response.originalLanguage ?? '',
-      originalName: response.originalName ?? '',
-      originCountry: response.originCountry ?? [],
-      popularity: response.popularity ?? 0.0,
-      voteCount: response.voteCount ?? 0,
+      genreIds: response.genreIds,
+      originalLanguage: response.originalLanguage,
+      originalName: response.originalName,
+      originCountry: response.originCountry,
+      popularity: response.popularity,
+      voteCount: response.voteCount,
     );
   }
 
   TvDetailEntity _mapTvDetailModelToEntity(TvDetailModel response) {
     return TvDetailEntity(
-      id: response.id ?? 0,
-      name: response.name ?? '',
-      overview: response.overview ?? '',
+      id: response.id,
+      name: response.name,
+      overview: response.overview,
       posterPath: response.posterPath ?? '',
       backdropPath: response.backdropPath ?? '',
       firstAirDate: response.firstAirDate ?? '',
@@ -102,11 +102,11 @@ class TvRepositoryImpl implements TvRepository {
       originCountry: response.originCountry ?? [],
       popularity: response.popularity ?? 0.0,
       voteCount: response.voteCount ?? 0,
-      status: response.status ?? '',
+      status: response.status,
       numberOfEpisodes: response.numberOfEpisodes ?? 0,
       tagline: response.tagline ?? '',
       homepage: response.homepage ?? '',
-      genres: response.genres.map((genre) => genre.toEntity()).toList() ?? [],
+      genres: response.genres.map((genre) => genre.toEntity()).toList(),
       lastEpisodeToAir: response.lastEpisodeToAir?.toEntity(),
       spokenLanguages: response.spokenLanguages
               ?.map((language) => language.toEntity())
@@ -122,9 +122,9 @@ class TvRepositoryImpl implements TvRepository {
           [],
       type: response.type ?? '',
       episodeRunTime:
-          response.episodeRunTime?.map((e) => e ?? 0).toList() ?? [],
+          response.episodeRunTime?.map((e) => e).toList() ?? [],
       inProduction: response.inProduction ?? false,
-      languages: response.languages?.map((e) => e ?? '').toList() ?? [],
+      languages: response.languages?.map((e) => e).toList() ?? [],
       lastAirDate: response.lastAirDate ?? '',
       networks:
           response.networks?.map((network) => network.toEntity()).toList() ??

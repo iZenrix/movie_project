@@ -46,6 +46,8 @@ class TvDatasourceImpl implements TvDatasource {
     try {
       final response = await dioClient.get('/tv/$id');
 
+      print('Response from getTvDetail: $response');
+
       return TvDetailModel.fromJson(response);
     } catch (e) {
       throw Exception('Failed to fetch TV details: $e');

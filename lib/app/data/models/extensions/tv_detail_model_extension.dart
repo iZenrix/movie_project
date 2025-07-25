@@ -80,7 +80,6 @@ extension EpisodeModelX on EpisodeModel {
       runtime: runtime,
       seasonNumber: seasonNumber!,
       showId: showId!,
-      stillPath: stillPath,
     );
   }
 }

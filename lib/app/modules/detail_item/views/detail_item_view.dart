@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:movie_project/app/components/error_initial_widget.dart';
 import 'package:movie_project/app/components/neo_brutalism_container.dart';
 import 'package:movie_project/app/core/enum/load_state.dart';
-
+import 'package:movie_project/app/core/enum/content_type.dart';
 import '../controllers/detail_item_controller.dart';
 
 class DetailItemView extends GetView<DetailItemController> {
@@ -20,12 +19,27 @@ class DetailItemView extends GetView<DetailItemController> {
           case LoadState.loading:
             return const Center(child: CircularProgressIndicator());
           case LoadState.error:
-            return ErrorInitialWidget(
-              onRetry: controller.fetchDetail,
+            return Center(
+              child: CustomScrollView(
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                slivers: [
+                  ErrorInitialWidget(
+                    onRetry: controller.fetchDetail,
+                    useButton: true,
+                  ),
+                ],
+              ),
             );
           case LoadState.success:
             final detail = controller.content.value!;
             final genres = detail.genres?.map((g) => g.name).join(', ') ?? '-';
+            final title = controller.type == ContentType.movie
+                ? detail.title ?? '-'
+                : detail.name ?? '-';
+            final date = controller.type == ContentType.movie
+                ? detail.releaseDate ?? '-'
+                : detail.firstAirDate ?? '-';
 
             return CustomScrollView(
               slivers: [
@@ -35,9 +49,9 @@ class DetailItemView extends GetView<DetailItemController> {
                   flexibleSpace: FlexibleSpaceBar(
                     background: detail.backdropPath != null
                         ? Image.network(
-                            'https://image.tmdb.org/t/p/w780${detail.backdropPath}',
-                            fit: BoxFit.cover,
-                          )
+                      'https://image.tmdb.org/t/p/w780${detail.backdropPath}',
+                      fit: BoxFit.cover,
+                    )
                         : Container(color: Colors.grey[300]),
                   ),
                 ),
@@ -64,7 +78,7 @@ class DetailItemView extends GetView<DetailItemController> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    detail.title ?? detail.name ?? '-',
+                                    title,
                                     style: theme.textTheme.headlineSmall
                                         ?.copyWith(fontWeight: FontWeight.bold),
                                   ),
@@ -74,8 +88,7 @@ class DetailItemView extends GetView<DetailItemController> {
                                   Text(
                                       'Rating: ${detail.voteAverage?.toStringAsFixed(1) ?? '-'} / 10'),
                                   const SizedBox(height: 4),
-                                  Text(
-                                      'Release Date: ${detail.releaseDate ?? detail.firstAirDate ?? '-'}'),
+                                  Text('Release Date: $date'),
                                 ],
                               ),
                             ),
@@ -114,7 +127,6 @@ class DetailItemView extends GetView<DetailItemController> {
                               ],
                             ),
                           ),
-                          //comment
                           NeoBrutalismContainer(
                             containerColor: Colors.blueAccent,
                             padding: const EdgeInsets.all(12),
@@ -139,8 +151,6 @@ class DetailItemView extends GetView<DetailItemController> {
                           ),
                         ],
                       ),
-
-                      // Optional: Add more sections like seasons, production companies, etc.
                     ]),
                   ),
                 ),

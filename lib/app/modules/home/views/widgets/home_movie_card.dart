@@ -66,7 +66,7 @@ class HomeMovieCard extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              movie.title ?? 'Unknown Title',
+              movie.title,
               style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,

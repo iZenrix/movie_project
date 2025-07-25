@@ -76,7 +76,7 @@ class HomeTvCard extends StatelessWidget {
         onTap: () {
           Get.toNamed(
             Routes.DETAIL_ITEM,
-            arguments: {'id': tv.id, 'type': ContentType.movie},
+            arguments: {'id': tv.id, 'type': ContentType.tv},
           );
         },
       ),

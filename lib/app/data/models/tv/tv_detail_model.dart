@@ -19,7 +19,6 @@ abstract class TvDetailModel with _$TvDetailModel {
     @JsonKey(name: 'last_air_date') String? lastAirDate,
     @JsonKey(name: 'last_episode_to_air') EpisodeModel? lastEpisodeToAir,
     required String name,
-    @JsonKey(name: 'next_episode_to_air') dynamic nextEpisodeToAir,
     List<NetworkModel>? networks,
     @JsonKey(name: 'number_of_episodes') int? numberOfEpisodes,
     @JsonKey(name: 'number_of_seasons') int? numberOfSeasons,
@@ -68,7 +67,6 @@ abstract class EpisodeModel with _$EpisodeModel {
     int? runtime,
     @JsonKey(name: 'season_number') int? seasonNumber,
     @JsonKey(name: 'show_id') int? showId,
-    @JsonKey(name: 'still_path') String? stillPath,
   }) = _EpisodeModel;
 
   factory EpisodeModel.fromJson(Map<String, dynamic> json) => _$EpisodeModelFromJson(json);

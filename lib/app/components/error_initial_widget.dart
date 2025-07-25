@@ -15,38 +15,40 @@ class ErrorInitialWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
-      child: Column(
-        spacing: 8.0,
-        children: [
-          Text(
-            'Gagal memuat data',
-            style: TextStyle(
-              fontSize: 16.0,
-              color: Color(0xff121212),
+      child: Center(
+        child: Column(
+          spacing: 8.0,
+          children: [
+            Text(
+              'Gagal memuat data',
+              style: TextStyle(
+                fontSize: 16.0,
+                color: Color(0xff121212),
+              ),
             ),
-          ),
-          !useButton
-              ? SizedBox.shrink()
-              : GestureDetector(
-                  onTap: onRetry,
-                  child: NeoBrutalismContainer(
-                    containerColor: Colors.deepOrange,
-                    padding: const EdgeInsets.all(16.0),
-                    margin: const EdgeInsets.symmetric(
-                      horizontal: 16.0,
-                      vertical: 8.0,
-                    ),
-                    child: Text(
-                      'Coba lagi',
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        color: Color(0xffffffff),
-                        fontWeight: FontWeight.w600,
+            !useButton
+                ? SizedBox.shrink()
+                : GestureDetector(
+                    onTap: onRetry,
+                    child: NeoBrutalismContainer(
+                      containerColor: Colors.blueAccent,
+                      padding: const EdgeInsets.all(16.0),
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 16.0,
+                        vertical: 8.0,
+                      ),
+                      child: Text(
+                        'Coba lagi',
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          color: Color(0xffffffff),
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
-                  ),
-                )
-        ],
+                  )
+          ],
+        ),
       ),
     );
   }

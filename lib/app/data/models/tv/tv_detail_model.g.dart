@@ -30,7 +30,6 @@ _TvDetailModel _$TvDetailModelFromJson(Map<String, dynamic> json) =>
           : EpisodeModel.fromJson(
               json['last_episode_to_air'] as Map<String, dynamic>),
       name: json['name'] as String,
-      nextEpisodeToAir: json['next_episode_to_air'],
       networks: (json['networks'] as List<dynamic>?)
           ?.map((e) => NetworkModel.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -80,7 +79,6 @@ Map<String, dynamic> _$TvDetailModelToJson(_TvDetailModel instance) =>
       'last_air_date': instance.lastAirDate,
       'last_episode_to_air': instance.lastEpisodeToAir,
       'name': instance.name,
-      'next_episode_to_air': instance.nextEpisodeToAir,
       'networks': instance.networks,
       'number_of_episodes': instance.numberOfEpisodes,
       'number_of_seasons': instance.numberOfSeasons,
@@ -126,7 +124,6 @@ _EpisodeModel _$EpisodeModelFromJson(Map<String, dynamic> json) =>
       runtime: (json['runtime'] as num?)?.toInt(),
       seasonNumber: (json['season_number'] as num?)?.toInt(),
       showId: (json['show_id'] as num?)?.toInt(),
-      stillPath: json['still_path'] as String?,
     );
 
 Map<String, dynamic> _$EpisodeModelToJson(_EpisodeModel instance) =>
@@ -143,7 +140,6 @@ Map<String, dynamic> _$EpisodeModelToJson(_EpisodeModel instance) =>
       'runtime': instance.runtime,
       'season_number': instance.seasonNumber,
       'show_id': instance.showId,
-      'still_path': instance.stillPath,
     };
 
 _NetworkModel _$NetworkModelFromJson(Map<String, dynamic> json) =>

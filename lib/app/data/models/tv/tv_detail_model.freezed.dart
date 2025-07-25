@@ -34,8 +34,6 @@ mixin _$TvDetailModel {
   @JsonKey(name: 'last_episode_to_air')
   EpisodeModel? get lastEpisodeToAir;
   String get name;
-  @JsonKey(name: 'next_episode_to_air')
-  dynamic get nextEpisodeToAir;
   List<NetworkModel>? get networks;
   @JsonKey(name: 'number_of_episodes')
   int? get numberOfEpisodes;
@@ -102,8 +100,6 @@ mixin _$TvDetailModel {
             (identical(other.lastEpisodeToAir, lastEpisodeToAir) ||
                 other.lastEpisodeToAir == lastEpisodeToAir) &&
             (identical(other.name, name) || other.name == name) &&
-            const DeepCollectionEquality()
-                .equals(other.nextEpisodeToAir, nextEpisodeToAir) &&
             const DeepCollectionEquality().equals(other.networks, networks) &&
             (identical(other.numberOfEpisodes, numberOfEpisodes) ||
                 other.numberOfEpisodes == numberOfEpisodes) &&
@@ -154,7 +150,6 @@ mixin _$TvDetailModel {
         lastAirDate,
         lastEpisodeToAir,
         name,
-        const DeepCollectionEquality().hash(nextEpisodeToAir),
         const DeepCollectionEquality().hash(networks),
         numberOfEpisodes,
         numberOfSeasons,
@@ -177,7 +172,7 @@ mixin _$TvDetailModel {
 
   @override
   String toString() {
-    return 'TvDetailModel(adult: $adult, backdropPath: $backdropPath, createdBy: $createdBy, episodeRunTime: $episodeRunTime, firstAirDate: $firstAirDate, genres: $genres, homepage: $homepage, id: $id, inProduction: $inProduction, languages: $languages, lastAirDate: $lastAirDate, lastEpisodeToAir: $lastEpisodeToAir, name: $name, nextEpisodeToAir: $nextEpisodeToAir, networks: $networks, numberOfEpisodes: $numberOfEpisodes, numberOfSeasons: $numberOfSeasons, originCountry: $originCountry, originalLanguage: $originalLanguage, originalName: $originalName, overview: $overview, popularity: $popularity, posterPath: $posterPath, productionCompanies: $productionCompanies, productionCountries: $productionCountries, seasons: $seasons, spokenLanguages: $spokenLanguages, status: $status, tagline: $tagline, type: $type, voteAverage: $voteAverage, voteCount: $voteCount)';
+    return 'TvDetailModel(adult: $adult, backdropPath: $backdropPath, createdBy: $createdBy, episodeRunTime: $episodeRunTime, firstAirDate: $firstAirDate, genres: $genres, homepage: $homepage, id: $id, inProduction: $inProduction, languages: $languages, lastAirDate: $lastAirDate, lastEpisodeToAir: $lastEpisodeToAir, name: $name, networks: $networks, numberOfEpisodes: $numberOfEpisodes, numberOfSeasons: $numberOfSeasons, originCountry: $originCountry, originalLanguage: $originalLanguage, originalName: $originalName, overview: $overview, popularity: $popularity, posterPath: $posterPath, productionCompanies: $productionCompanies, productionCountries: $productionCountries, seasons: $seasons, spokenLanguages: $spokenLanguages, status: $status, tagline: $tagline, type: $type, voteAverage: $voteAverage, voteCount: $voteCount)';
   }
 }
 
@@ -201,7 +196,6 @@ abstract mixin class $TvDetailModelCopyWith<$Res> {
       @JsonKey(name: 'last_air_date') String? lastAirDate,
       @JsonKey(name: 'last_episode_to_air') EpisodeModel? lastEpisodeToAir,
       String name,
-      @JsonKey(name: 'next_episode_to_air') dynamic nextEpisodeToAir,
       List<NetworkModel>? networks,
       @JsonKey(name: 'number_of_episodes') int? numberOfEpisodes,
       @JsonKey(name: 'number_of_seasons') int? numberOfSeasons,
@@ -253,7 +247,6 @@ class _$TvDetailModelCopyWithImpl<$Res>
     Object? lastAirDate = freezed,
     Object? lastEpisodeToAir = freezed,
     Object? name = null,
-    Object? nextEpisodeToAir = freezed,
     Object? networks = freezed,
     Object? numberOfEpisodes = freezed,
     Object? numberOfSeasons = freezed,
@@ -326,10 +319,6 @@ class _$TvDetailModelCopyWithImpl<$Res>
           ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      nextEpisodeToAir: freezed == nextEpisodeToAir
-          ? _self.nextEpisodeToAir
-          : nextEpisodeToAir // ignore: cast_nullable_to_non_nullable
-              as dynamic,
       networks: freezed == networks
           ? _self.networks
           : networks // ignore: cast_nullable_to_non_nullable
@@ -528,7 +517,6 @@ extension TvDetailModelPatterns on TvDetailModel {
             @JsonKey(name: 'last_episode_to_air')
             EpisodeModel? lastEpisodeToAir,
             String name,
-            @JsonKey(name: 'next_episode_to_air') dynamic nextEpisodeToAir,
             List<NetworkModel>? networks,
             @JsonKey(name: 'number_of_episodes') int? numberOfEpisodes,
             @JsonKey(name: 'number_of_seasons') int? numberOfSeasons,
@@ -570,7 +558,6 @@ extension TvDetailModelPatterns on TvDetailModel {
             _that.lastAirDate,
             _that.lastEpisodeToAir,
             _that.name,
-            _that.nextEpisodeToAir,
             _that.networks,
             _that.numberOfEpisodes,
             _that.numberOfSeasons,
@@ -624,7 +611,6 @@ extension TvDetailModelPatterns on TvDetailModel {
             @JsonKey(name: 'last_episode_to_air')
             EpisodeModel? lastEpisodeToAir,
             String name,
-            @JsonKey(name: 'next_episode_to_air') dynamic nextEpisodeToAir,
             List<NetworkModel>? networks,
             @JsonKey(name: 'number_of_episodes') int? numberOfEpisodes,
             @JsonKey(name: 'number_of_seasons') int? numberOfSeasons,
@@ -665,7 +651,6 @@ extension TvDetailModelPatterns on TvDetailModel {
             _that.lastAirDate,
             _that.lastEpisodeToAir,
             _that.name,
-            _that.nextEpisodeToAir,
             _that.networks,
             _that.numberOfEpisodes,
             _that.numberOfSeasons,
@@ -718,7 +703,6 @@ extension TvDetailModelPatterns on TvDetailModel {
             @JsonKey(name: 'last_episode_to_air')
             EpisodeModel? lastEpisodeToAir,
             String name,
-            @JsonKey(name: 'next_episode_to_air') dynamic nextEpisodeToAir,
             List<NetworkModel>? networks,
             @JsonKey(name: 'number_of_episodes') int? numberOfEpisodes,
             @JsonKey(name: 'number_of_seasons') int? numberOfSeasons,
@@ -759,7 +743,6 @@ extension TvDetailModelPatterns on TvDetailModel {
             _that.lastAirDate,
             _that.lastEpisodeToAir,
             _that.name,
-            _that.nextEpisodeToAir,
             _that.networks,
             _that.numberOfEpisodes,
             _that.numberOfSeasons,
@@ -801,7 +784,6 @@ class _TvDetailModel implements TvDetailModel {
       @JsonKey(name: 'last_air_date') this.lastAirDate,
       @JsonKey(name: 'last_episode_to_air') this.lastEpisodeToAir,
       required this.name,
-      @JsonKey(name: 'next_episode_to_air') this.nextEpisodeToAir,
       final List<NetworkModel>? networks,
       @JsonKey(name: 'number_of_episodes') this.numberOfEpisodes,
       @JsonKey(name: 'number_of_seasons') this.numberOfSeasons,
@@ -899,9 +881,6 @@ class _TvDetailModel implements TvDetailModel {
   final EpisodeModel? lastEpisodeToAir;
   @override
   final String name;
-  @override
-  @JsonKey(name: 'next_episode_to_air')
-  final dynamic nextEpisodeToAir;
   final List<NetworkModel>? _networks;
   @override
   List<NetworkModel>? get networks {
@@ -1042,8 +1021,6 @@ class _TvDetailModel implements TvDetailModel {
             (identical(other.lastEpisodeToAir, lastEpisodeToAir) ||
                 other.lastEpisodeToAir == lastEpisodeToAir) &&
             (identical(other.name, name) || other.name == name) &&
-            const DeepCollectionEquality()
-                .equals(other.nextEpisodeToAir, nextEpisodeToAir) &&
             const DeepCollectionEquality().equals(other._networks, _networks) &&
             (identical(other.numberOfEpisodes, numberOfEpisodes) ||
                 other.numberOfEpisodes == numberOfEpisodes) &&
@@ -1094,7 +1071,6 @@ class _TvDetailModel implements TvDetailModel {
         lastAirDate,
         lastEpisodeToAir,
         name,
-        const DeepCollectionEquality().hash(nextEpisodeToAir),
         const DeepCollectionEquality().hash(_networks),
         numberOfEpisodes,
         numberOfSeasons,
@@ -1117,7 +1093,7 @@ class _TvDetailModel implements TvDetailModel {
 
   @override
   String toString() {
-    return 'TvDetailModel(adult: $adult, backdropPath: $backdropPath, createdBy: $createdBy, episodeRunTime: $episodeRunTime, firstAirDate: $firstAirDate, genres: $genres, homepage: $homepage, id: $id, inProduction: $inProduction, languages: $languages, lastAirDate: $lastAirDate, lastEpisodeToAir: $lastEpisodeToAir, name: $name, nextEpisodeToAir: $nextEpisodeToAir, networks: $networks, numberOfEpisodes: $numberOfEpisodes, numberOfSeasons: $numberOfSeasons, originCountry: $originCountry, originalLanguage: $originalLanguage, originalName: $originalName, overview: $overview, popularity: $popularity, posterPath: $posterPath, productionCompanies: $productionCompanies, productionCountries: $productionCountries, seasons: $seasons, spokenLanguages: $spokenLanguages, status: $status, tagline: $tagline, type: $type, voteAverage: $voteAverage, voteCount: $voteCount)';
+    return 'TvDetailModel(adult: $adult, backdropPath: $backdropPath, createdBy: $createdBy, episodeRunTime: $episodeRunTime, firstAirDate: $firstAirDate, genres: $genres, homepage: $homepage, id: $id, inProduction: $inProduction, languages: $languages, lastAirDate: $lastAirDate, lastEpisodeToAir: $lastEpisodeToAir, name: $name, networks: $networks, numberOfEpisodes: $numberOfEpisodes, numberOfSeasons: $numberOfSeasons, originCountry: $originCountry, originalLanguage: $originalLanguage, originalName: $originalName, overview: $overview, popularity: $popularity, posterPath: $posterPath, productionCompanies: $productionCompanies, productionCountries: $productionCountries, seasons: $seasons, spokenLanguages: $spokenLanguages, status: $status, tagline: $tagline, type: $type, voteAverage: $voteAverage, voteCount: $voteCount)';
   }
 }
 
@@ -1143,7 +1119,6 @@ abstract mixin class _$TvDetailModelCopyWith<$Res>
       @JsonKey(name: 'last_air_date') String? lastAirDate,
       @JsonKey(name: 'last_episode_to_air') EpisodeModel? lastEpisodeToAir,
       String name,
-      @JsonKey(name: 'next_episode_to_air') dynamic nextEpisodeToAir,
       List<NetworkModel>? networks,
       @JsonKey(name: 'number_of_episodes') int? numberOfEpisodes,
       @JsonKey(name: 'number_of_seasons') int? numberOfSeasons,
@@ -1196,7 +1171,6 @@ class __$TvDetailModelCopyWithImpl<$Res>
     Object? lastAirDate = freezed,
     Object? lastEpisodeToAir = freezed,
     Object? name = null,
-    Object? nextEpisodeToAir = freezed,
     Object? networks = freezed,
     Object? numberOfEpisodes = freezed,
     Object? numberOfSeasons = freezed,
@@ -1269,10 +1243,6 @@ class __$TvDetailModelCopyWithImpl<$Res>
           ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      nextEpisodeToAir: freezed == nextEpisodeToAir
-          ? _self.nextEpisodeToAir
-          : nextEpisodeToAir // ignore: cast_nullable_to_non_nullable
-              as dynamic,
       networks: freezed == networks
           ? _self._networks
           : networks // ignore: cast_nullable_to_non_nullable
@@ -1698,8 +1668,6 @@ mixin _$EpisodeModel {
   int? get seasonNumber;
   @JsonKey(name: 'show_id')
   int? get showId;
-  @JsonKey(name: 'still_path')
-  String? get stillPath;
 
   /// Create a copy of EpisodeModel
   /// with the given fields replaced by the non-null parameter values.
@@ -1735,9 +1703,7 @@ mixin _$EpisodeModel {
             (identical(other.runtime, runtime) || other.runtime == runtime) &&
             (identical(other.seasonNumber, seasonNumber) ||
                 other.seasonNumber == seasonNumber) &&
-            (identical(other.showId, showId) || other.showId == showId) &&
-            (identical(other.stillPath, stillPath) ||
-                other.stillPath == stillPath));
+            (identical(other.showId, showId) || other.showId == showId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1755,12 +1721,11 @@ mixin _$EpisodeModel {
       productionCode,
       runtime,
       seasonNumber,
-      showId,
-      stillPath);
+      showId);
 
   @override
   String toString() {
-    return 'EpisodeModel(id: $id, name: $name, overview: $overview, voteAverage: $voteAverage, voteCount: $voteCount, airDate: $airDate, episodeNumber: $episodeNumber, episodeType: $episodeType, productionCode: $productionCode, runtime: $runtime, seasonNumber: $seasonNumber, showId: $showId, stillPath: $stillPath)';
+    return 'EpisodeModel(id: $id, name: $name, overview: $overview, voteAverage: $voteAverage, voteCount: $voteCount, airDate: $airDate, episodeNumber: $episodeNumber, episodeType: $episodeType, productionCode: $productionCode, runtime: $runtime, seasonNumber: $seasonNumber, showId: $showId)';
   }
 }
 
@@ -1782,8 +1747,7 @@ abstract mixin class $EpisodeModelCopyWith<$Res> {
       @JsonKey(name: 'production_code') String? productionCode,
       int? runtime,
       @JsonKey(name: 'season_number') int? seasonNumber,
-      @JsonKey(name: 'show_id') int? showId,
-      @JsonKey(name: 'still_path') String? stillPath});
+      @JsonKey(name: 'show_id') int? showId});
 }
 
 /// @nodoc
@@ -1810,7 +1774,6 @@ class _$EpisodeModelCopyWithImpl<$Res> implements $EpisodeModelCopyWith<$Res> {
     Object? runtime = freezed,
     Object? seasonNumber = freezed,
     Object? showId = freezed,
-    Object? stillPath = freezed,
   }) {
     return _then(_self.copyWith(
       id: null == id
@@ -1861,10 +1824,6 @@ class _$EpisodeModelCopyWithImpl<$Res> implements $EpisodeModelCopyWith<$Res> {
           ? _self.showId
           : showId // ignore: cast_nullable_to_non_nullable
               as int?,
-      stillPath: freezed == stillPath
-          ? _self.stillPath
-          : stillPath // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -1974,8 +1933,7 @@ extension EpisodeModelPatterns on EpisodeModel {
             @JsonKey(name: 'production_code') String? productionCode,
             int? runtime,
             @JsonKey(name: 'season_number') int? seasonNumber,
-            @JsonKey(name: 'show_id') int? showId,
-            @JsonKey(name: 'still_path') String? stillPath)?
+            @JsonKey(name: 'show_id') int? showId)?
         $default, {
     required TResult orElse(),
   }) {
@@ -1994,8 +1952,7 @@ extension EpisodeModelPatterns on EpisodeModel {
             _that.productionCode,
             _that.runtime,
             _that.seasonNumber,
-            _that.showId,
-            _that.stillPath);
+            _that.showId);
       case _:
         return orElse();
     }
@@ -2028,8 +1985,7 @@ extension EpisodeModelPatterns on EpisodeModel {
             @JsonKey(name: 'production_code') String? productionCode,
             int? runtime,
             @JsonKey(name: 'season_number') int? seasonNumber,
-            @JsonKey(name: 'show_id') int? showId,
-            @JsonKey(name: 'still_path') String? stillPath)
+            @JsonKey(name: 'show_id') int? showId)
         $default,
   ) {
     final _that = this;
@@ -2047,8 +2003,7 @@ extension EpisodeModelPatterns on EpisodeModel {
             _that.productionCode,
             _that.runtime,
             _that.seasonNumber,
-            _that.showId,
-            _that.stillPath);
+            _that.showId);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -2080,8 +2035,7 @@ extension EpisodeModelPatterns on EpisodeModel {
             @JsonKey(name: 'production_code') String? productionCode,
             int? runtime,
             @JsonKey(name: 'season_number') int? seasonNumber,
-            @JsonKey(name: 'show_id') int? showId,
-            @JsonKey(name: 'still_path') String? stillPath)?
+            @JsonKey(name: 'show_id') int? showId)?
         $default,
   ) {
     final _that = this;
@@ -2099,8 +2053,7 @@ extension EpisodeModelPatterns on EpisodeModel {
             _that.productionCode,
             _that.runtime,
             _that.seasonNumber,
-            _that.showId,
-            _that.stillPath);
+            _that.showId);
       case _:
         return null;
     }
@@ -2122,8 +2075,7 @@ class _EpisodeModel implements EpisodeModel {
       @JsonKey(name: 'production_code') this.productionCode,
       this.runtime,
       @JsonKey(name: 'season_number') this.seasonNumber,
-      @JsonKey(name: 'show_id') this.showId,
-      @JsonKey(name: 'still_path') this.stillPath});
+      @JsonKey(name: 'show_id') this.showId});
   factory _EpisodeModel.fromJson(Map<String, dynamic> json) =>
       _$EpisodeModelFromJson(json);
 
@@ -2159,9 +2111,6 @@ class _EpisodeModel implements EpisodeModel {
   @override
   @JsonKey(name: 'show_id')
   final int? showId;
-  @override
-  @JsonKey(name: 'still_path')
-  final String? stillPath;
 
   /// Create a copy of EpisodeModel
   /// with the given fields replaced by the non-null parameter values.
@@ -2201,9 +2150,7 @@ class _EpisodeModel implements EpisodeModel {
             (identical(other.runtime, runtime) || other.runtime == runtime) &&
             (identical(other.seasonNumber, seasonNumber) ||
                 other.seasonNumber == seasonNumber) &&
-            (identical(other.showId, showId) || other.showId == showId) &&
-            (identical(other.stillPath, stillPath) ||
-                other.stillPath == stillPath));
+            (identical(other.showId, showId) || other.showId == showId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -2221,12 +2168,11 @@ class _EpisodeModel implements EpisodeModel {
       productionCode,
       runtime,
       seasonNumber,
-      showId,
-      stillPath);
+      showId);
 
   @override
   String toString() {
-    return 'EpisodeModel(id: $id, name: $name, overview: $overview, voteAverage: $voteAverage, voteCount: $voteCount, airDate: $airDate, episodeNumber: $episodeNumber, episodeType: $episodeType, productionCode: $productionCode, runtime: $runtime, seasonNumber: $seasonNumber, showId: $showId, stillPath: $stillPath)';
+    return 'EpisodeModel(id: $id, name: $name, overview: $overview, voteAverage: $voteAverage, voteCount: $voteCount, airDate: $airDate, episodeNumber: $episodeNumber, episodeType: $episodeType, productionCode: $productionCode, runtime: $runtime, seasonNumber: $seasonNumber, showId: $showId)';
   }
 }
 
@@ -2250,8 +2196,7 @@ abstract mixin class _$EpisodeModelCopyWith<$Res>
       @JsonKey(name: 'production_code') String? productionCode,
       int? runtime,
       @JsonKey(name: 'season_number') int? seasonNumber,
-      @JsonKey(name: 'show_id') int? showId,
-      @JsonKey(name: 'still_path') String? stillPath});
+      @JsonKey(name: 'show_id') int? showId});
 }
 
 /// @nodoc
@@ -2279,7 +2224,6 @@ class __$EpisodeModelCopyWithImpl<$Res>
     Object? runtime = freezed,
     Object? seasonNumber = freezed,
     Object? showId = freezed,
-    Object? stillPath = freezed,
   }) {
     return _then(_EpisodeModel(
       id: null == id
@@ -2330,10 +2274,6 @@ class __$EpisodeModelCopyWithImpl<$Res>
           ? _self.showId
           : showId // ignore: cast_nullable_to_non_nullable
               as int?,
-      stillPath: freezed == stillPath
-          ? _self.stillPath
-          : stillPath // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
